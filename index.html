@@ -46,13 +46,13 @@ button{font-family:inherit;color:inherit}
 .nav{display:flex;flex-direction:column;gap:2px}
 .nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:10px;font:500 14.5px var(--f-body);color:var(--side-fg)}
 .nav button:hover{background:var(--side-line)}
-.nav button[aria-current="page"]{background:linear-gradient(180deg,#ffffff,var(--side-fg));color:var(--side);box-shadow:0 3px 0 rgba(0,0,0,.28),0 8px 14px -6px rgba(0,0,0,.4);transform:translateY(-1px)}
+.nav button[aria-current="page"]{background:var(--side-fg);color:var(--side)}
 .nav button[aria-current="page"] .cnt{color:var(--side);opacity:.7}
 .nav .ic{width:18px;height:18px;flex:0 0 auto}
 .nav .cnt{margin-left:auto;font:600 11.5px var(--f-mono);color:var(--side-muted)}
 .nav button:focus-visible{outline:2px solid var(--accent-2)}
 .fsec{border-top:1px solid var(--side-line);padding-top:14px;display:flex;flex-direction:column;gap:14px}
-.fsec h3{margin:0;font:600 11.5px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--side-muted);display:flex;justify-content:space-between;align-items:center;padding:0 6px}
+.fsec h3{margin:0;font:600 13px var(--f-body);color:var(--side-muted);display:flex;justify-content:space-between;align-items:center;padding:0 6px}
 .fsec h3 button{all:unset;cursor:pointer;font:600 11.5px var(--f-body);letter-spacing:0;text-transform:none;color:var(--accent-2)}
 .fg h4{margin:0 0 6px;font:600 12.5px var(--f-body);color:var(--side-muted);padding:0 6px}
 .checks{display:flex;flex-direction:column;gap:1px}
@@ -87,12 +87,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .count{font-size:14px;color:var(--muted)}.count b{font-family:var(--f-mono);color:var(--fg)}
 /* cards */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px}
-.card{all:unset;box-sizing:border-box;position:relative;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:var(--r);padding:15px 16px;cursor:pointer;min-width:0;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(var(--ty,0px));transform-style:preserve-3d;transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color .2s;box-shadow:inset 0 1px 0 var(--rim),0 5px 0 -1px var(--edge),0 6px 0 -1px var(--edge-2),0 14px 24px -10px var(--drop)}
-.card::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:radial-gradient(240px circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.22),transparent 60%);opacity:var(--go,0);transition:opacity .25s}
-.card:hover{border-color:var(--accent);--ty:-4px;--go:1;box-shadow:inset 0 1px 0 var(--rim),0 7px 0 -1px var(--edge),0 8px 0 -1px var(--edge-2),0 24px 34px -14px var(--drop)}
-.card:active{--ty:1px;box-shadow:inset 0 1px 0 var(--rim),0 2px 0 -1px var(--edge),0 3px 0 -1px var(--edge-2),0 8px 14px -8px var(--drop)}
+.card{all:unset;box-sizing:border-box;position:relative;display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:15px 16px;cursor:pointer;min-width:0;transition:transform .15s,box-shadow .15s,border-color .15s;box-shadow:0 3px 0 -1px var(--edge),0 10px 18px -12px var(--drop)}
+.card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 5px 0 -1px var(--edge),0 16px 24px -14px var(--drop)}
+.card:active{transform:translateY(1px);box-shadow:0 1px 0 -1px var(--edge)}
 .card:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
-.card.top{border-color:var(--hl-line);background:linear-gradient(var(--hl),var(--surface) 52px,var(--surface-2))}
+.card.top{border-color:var(--hl-line);background:linear-gradient(var(--hl),var(--surface) 44px)}
 .card .eyebrow{font:600 12px var(--f-body);color:var(--muted);display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
 .card h3{font:600 16px/1.35 var(--f-head);margin:0;overflow-wrap:anywhere}
 .card .sub{font-size:13.5px;color:var(--muted);overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
@@ -124,13 +123,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .hero .hs span{font-size:12px;color:var(--side-muted)}
 .hero canvas{width:100%;height:100%;min-height:230px;display:block}
 @media (max-width:760px){.hero{grid-template-columns:1fr}.hero canvas{min-height:190px;height:190px}.hero .ht{padding:20px 20px 4px}}
-.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,160px),1fr));gap:12px}
-.kpi{background:linear-gradient(160deg,var(--surface),var(--surface-2));border:1px solid var(--line);border-radius:var(--r);padding:14px 16px 16px;position:relative;overflow:hidden;box-shadow:inset 0 1px 0 var(--rim),0 5px 0 -1px var(--edge),0 6px 0 -1px var(--edge-2),0 14px 22px -12px var(--drop)}
-.kpi::after{content:"";position:absolute;right:-30px;bottom:-40px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,var(--foam),transparent 70%);opacity:.7}
-.kpi b{display:block;font:600 28px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--fg)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.kpi{padding:12px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0}
+.kpi b{display:block;font:600 24px var(--f-mono);font-variant-numeric:tabular-nums;color:var(--fg)}
 .kpi span{font-size:13px;color:var(--muted)}
 .panes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:14px}
-.pane{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0;box-shadow:inset 0 1px 0 var(--rim),0 4px 0 -1px var(--edge),0 16px 26px -16px var(--drop)}
+.pane{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-width:0}
 .pane h2{font:600 16px var(--f-head);margin:0 0 12px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
 .pane h2 a,.pane h2 button{font:500 13px var(--f-body);background:none;border:0;color:var(--accent);cursor:pointer;padding:0}
 .bars{display:flex;flex-direction:column;gap:7px}
@@ -160,9 +158,8 @@ table.cmp th{font:600 12px var(--f-body);color:var(--muted)}
 .scroll{overflow-x:auto}
 /* detail panel */
 .scrim{position:fixed;inset:0;background:rgba(5,25,32,.45);z-index:40}
-.panel{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--bg);z-index:41;animation:pin .32s cubic-bezier(.2,.7,.2,1);transform-origin:right center;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(5,25,32,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@keyframes pin{from{transform:perspective(1200px) rotateY(-14deg) translateX(40px);opacity:0}to{transform:none;opacity:1}}
-.box{box-shadow:inset 0 1px 0 var(--rim),0 3px 0 -1px var(--edge)}
+.panel{position:fixed;top:0;right:0;bottom:0;width:min(640px,100%);background:var(--bg);z-index:41;animation:pin .2s ease-out;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(5,25,32,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@keyframes pin{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
 .phead{padding:16px max(18px,env(safe-area-inset-right,0px)) 14px 20px;background:var(--surface);border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:flex-start}
 .phead h2{font:700 19px/1.3 var(--f-head);margin:2px 0 0;text-wrap:balance}
 .phead .x{margin-left:auto;flex:0 0 auto}
@@ -321,7 +318,7 @@ function start(DATA){
   function cityCard(c){ var jl=JML[c.jm]||["চাকরির তথ্য কম",""];
     return '<div class="card" role="button" tabindex="0" data-open="ci|'+c.i+'"><div class="eyebrow"><span>'+esc(BN[c.c]||c.c)+(c.m&&c.m!==c.n?' · '+esc(c.m):'')+'</span></div><h3>'+esc(c.n)+'</h3><div class="pills"><span class="pill '+jl[1]+'">'+jl[0]+'</span></div>'+
       '<dl class="mini"><div><dt>মাসে খরচ (ছাত্র)</dt><dd>'+esc(c.tm||c.lv||"–")+'</dd></div><div><dt>রুম ভাড়া</dt><dd>'+esc(c.rr||"–")+'</dd></div><div><dt>শুরুর বেতন</dt><dd>'+esc(c.se||"–")+'</dd></div><div><dt>ট্রাফিক</dt><dd>'+esc(c.tr||"–")+'</dd></div></dl>'+(c.vd?'<div class="sub">'+esc(c.vd)+'</div>':'')+'</div>'; }
-  function moreBtn(n){ return n>shown?'<button class="btn more" type="button" id="morebtn">আরো দেখাও ('+(n-shown)+')</button>':""; }
+  function moreBtn(n){ return n>shown?'<button class="btn more" type="button" id="morebtn">আরও '+Math.min(30,n-shown)+'টা দেখাও (বাকি '+(n-shown)+')</button>':""; }
   document.addEventListener("click",function(e){ if(e.target.id==="morebtn"){ shown+=30; render(); } });
 
   // ---------- home ----------
@@ -334,7 +331,7 @@ function start(DATA){
     var topc=ci.filter(function(c){return c.jm==="Strong";}).slice(0,8);
     var n=DATA.notices||[];
     var full=ms.filter(function(m){return m.best==="FULL";}).length, cseok=ms.filter(function(m){return m.cse==="YES";}).length;
-    V.innerHTML='<section class="hero"><div class="ht"><div style="font:600 12px var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)">CSE থেকে চিপ ডিজাইনে</div><h2>Masters আর PhD খোঁজার গাইড</h2><p>৯টা দেশের public ইউনিভার্সিটি, VLSI / embedded / robotics প্রোগ্রাম, প্রফেসর, শহরের খরচ আর চাকরি। বাঁ পাশে দেশ বা বিষয় বাছলে সব বদলে যাবে, কার্ডে চাপলে ভেতরের বিস্তারিত।</p><div class="hs"><div><b>'+full+'</b><span>ফুল ফান্ডেড অপশন</span></div><div><b>'+cseok+'</b><span>CSE সরাসরি চলে</span></div><div><b>'+soon+'</b><span>ডেডলাইন ৩০ দিনে</span></div></div></div><canvas id="chip" aria-label="3D চিপের ছবি" role="img"></canvas></section>'+activeTags()+
+    V.innerHTML='<section class="hero"><div class="ht"><div style="font:500 13.5px var(--f-body);color:var(--accent-2)">আপডেট '+esc(DATA.updated||"")+' · ৯টা দেশ · শুধু public ইউনিভার্সিটি</div><h2>CSE থেকে VLSI, Embedded, Robotics</h2><p>Masters প্রোগ্রাম, PhD প্রফেসর, ডেডলাইন আর শহরের খরচ এক জায়গায়। বাঁ পাশে দেশ বাছলে সংখ্যাগুলো বদলাবে।</p><div class="hs"><div><b>'+full+'</b><span>ফুল ফান্ডেড অপশন</span></div><div><b>'+cseok+'</b><span>CSE সরাসরি চলে</span></div><div><b>'+soon+'</b><span>ডেডলাইন ৩০ দিনে</span></div></div></div><canvas id="chip" aria-label="3D চিপের ছবি" role="img"></canvas></section>'+activeTags()+
       '<div class="kpis">'+k.map(function(x){return '<div class="kpi"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>';}).join("")+'</div>'+
       '<div class="panes">'+
         '<section class="pane"><h2>দেশভেদে Masters ও ফান্ডিং <button type="button" data-go="masters">সব দেখো</button></h2><div class="bars">'+rows.map(function(r){ var w=function(v){return (v/mx*100).toFixed(1)+"%";}; return '<div class="brow" data-pick="'+esc(r.c)+'" title="'+esc(BN[r.c])+'"><span>'+esc(BN[r.c])+'</span><span class="btrack"><i style="width:'+w(r.f)+';background:var(--good)"></i><i style="width:'+w(r.t)+';background:var(--tui)"></i><i style="width:'+w(r.p)+';background:var(--accent-2)"></i><i style="width:'+w(r.n)+';background:var(--line)"></i></span><span class="mono" style="text-align:right">'+r.all+'</span></div>';}).join("")+'</div><div class="legend"><span style="--c:var(--good)">ফুল</span><span style="--c:var(--tui)">টিউশন মাফ</span><span style="--c:var(--accent-2)">আংশিক</span><span style="--c:var(--line)">নেই</span></div></section>'+
@@ -381,17 +378,11 @@ function start(DATA){
       if(!reduce) chipRAF=requestAnimationFrame(frame); }
     chipRAF=requestAnimationFrame(frame); }
 
-  // ---------- card tilt ----------
-  var fine=window.matchMedia&&window.matchMedia("(hover: hover) and (pointer: fine)").matches&&!(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
-  if(fine){ document.addEventListener("pointermove",function(e){ var c=e.target.closest&&e.target.closest(".card"); if(!c) return; var r=c.getBoundingClientRect(), x=(e.clientX-r.left)/r.width, y=(e.clientY-r.top)/r.height;
-      c.style.setProperty("--ry",((x-.5)*7).toFixed(2)+"deg"); c.style.setProperty("--rx",((.5-y)*6).toFixed(2)+"deg"); c.style.setProperty("--gx",(x*100).toFixed(1)+"%"); c.style.setProperty("--gy",(y*100).toFixed(1)+"%"); });
-    document.addEventListener("pointerout",function(e){ var c=e.target.closest&&e.target.closest(".card"); if(!c||c.contains(e.relatedTarget)) return; c.style.removeProperty("--rx"); c.style.removeProperty("--ry"); }); }
-
   // ---------- deadlines ----------
   function vDeadlines(V){ var k=on(local.pa), s=qtext(), cm="", html="";
     var l=DL.filter(function(x){ return dd(x)>=now&&cOk(x.c)&&(!k.length||k.indexOf(x.k)>=0)&&(!s||(x.t+" "+x.u+" "+(x.note||"")).toLowerCase().indexOf(s)>=0); });
     l.forEach(function(x){ var mo=dd(x).toLocaleDateString("en-GB",{month:"long",year:"numeric"}); if(mo!==cm){ html+='<div class="month">'+mo+'</div>'; cm=mo; } html+=dlRow(x); });
-    V.innerHTML='<p class="lead">ভর্তি, স্কলারশিপ আর PhD পজিশনের ডেডলাইন, সবচেয়ে কাছেরটা আগে। সারিতে চাপলে অফিসিয়াল লিংক আর বিস্তারিত দেখাবে।</p>'+activeTags()+
+    V.innerHTML='<p class="lead">কাছের তারিখ আগে। প্রতিটা সারিতে অফিসিয়াল লিংক আছে।</p>'+activeTags()+
       '<div class="tb">'+[["apply","ভর্তি"],["scholarship","স্কলারশিপ"],["phd","PhD পজিশন"]].map(function(o){return '<button class="chip" type="button" data-lp="pa|'+o[0]+'" aria-pressed="'+(local.pa[o[0]]?"true":"false")+'">'+o[1]+'</button>';}).join("")+'</div>'+
       '<div class="count"><b>'+l.length+'</b>টা আসন্ন ডেডলাইন</div><div class="pane">'+(html||'<div class="muted">এই ফিল্টারে আসন্ন ডেডলাইন নেই।</div>')+'</div>'; }
   document.addEventListener("click",function(e){ var b=e.target.closest("[data-lp]"); if(!b) return; var p=b.dataset.lp.split("|"); local[p[0]][p[1]]=!local[p[0]][p[1]]; shown=30; render(); });
@@ -400,7 +391,7 @@ function start(DATA){
   function vMasters(V){ var srt=document.getElementById("sort").value||"q", l=MS.filter(msMatch);
     l.sort(function(a,b){ if(srt==="n") return a.u.localeCompare(b.u); if(srt==="f") return (FR[a.best]-FR[b.best])||((a.q||9999)-(b.q||9999)); if(srt==="d") return (a.nd||9e15)-(b.nd||9e15); return ((a.q||9999)-(b.q||9999))||a.u.localeCompare(b.u); });
     var un={}; l.forEach(function(m){un[m.u]=1;});
-    V.innerHTML='<p class="lead">বাঁ পাশ থেকে দেশ, বিষয়, র‍্যাংক, স্কলারশিপ একসাথে কয়েকটা বাছো। হলুদ কার্ড মানে QS ১৫–১০০। কার্ডে চাপলে সব শর্ত, স্কলারশিপ আর শহরের তথ্য খুলবে। ☆ চাপলে শর্টলিস্টে যাবে।</p>'+activeTags()+
+    V.innerHTML='<p class="lead">হলুদ কার্ড = QS ১৫–১০০। ☆ চাপলে শর্টলিস্টে যায়।</p>'+activeTags()+
       '<div class="count"><b>'+l.length+'</b>টা প্রোগ্রাম · <b>'+Object.keys(un).length+'</b>টা ইউনিভার্সিটি</div>'+
       (l.length?'<div class="grid">'+l.slice(0,shown).map(msCard).join("")+'</div>'+moreBtn(l.length):'<div class="empty">এই ফিল্টারে কিছু নেই। বাঁ পাশ থেকে কয়েকটা ফিল্টার তুলে দেখো।</div>'); }
 
@@ -411,7 +402,7 @@ function start(DATA){
       if(local.po.email&&!p.e) return false; if(local.po.ver&&p.v!=="Yes") return false; if(local.po.pub&&p.pv) return false;
       return !s||(p.n+" "+p.u+" "+p.top+" "+p.lab).toLowerCase().indexOf(s)>=0; });
     l.sort(function(x,y){ if(srt==="n") return x.n.localeCompare(y.n); if(srt==="e") return (!x.e-!y.e)||((x.q||9999)-(y.q||9999)); return ((x.q||9999)-(y.q||9999))||x.u.localeCompare(y.u)||x.n.localeCompare(y.n); });
-    V.innerHTML='<p class="lead">VLSI-র কোন এরিয়ায় কাজ করতে চাও সেটা বাছো (একাধিক চলবে)। প্রফেসরের কার্ডে চাপলে তাঁর টপিক, ইমেইল, আর ফুল ফান্ডেড PhD পেতে কোন প্রজেক্ট দেখাতে হবে সব খুলবে।</p>'+activeTags()+
+    V.innerHTML='<p class="lead">এরিয়া বাছো, একাধিক চলবে। কার্ডে প্রফেসরের টপিক, ইমেইল আর কোন প্রজেক্ট দেখালে ফান্ডিং পাওয়া সহজ।</p>'+activeTags()+
       '<div class="tb">'+AORD.map(function(k){return '<button class="chip" type="button" data-lp="pa|'+k+'" aria-pressed="'+(local.pa[k]?"true":"false")+'" title="'+esc(AFUND[k]+" · "+CSEFIT[k])+'">'+esc(ABN[k])+' <span class="mono" style="opacity:.7">'+(acnt[k]||0)+'</span></button>';}).join("")+'</div>'+
       '<div class="tb">'+[["email","শুধু ইমেইল আছে"],["ver","অফিসিয়াল পেজে মিলানো"],["pub","শুধু public"]].map(function(o){return '<button class="chip" type="button" data-lp="po|'+o[0]+'" aria-pressed="'+(local.po[o[0]]?"true":"false")+'">'+o[1]+'</button>';}).join("")+'</div>'+
       '<div class="count"><b>'+l.length.toLocaleString("en")+'</b> জন প্রফেসর · ইমেইল আছে <b>'+l.filter(function(p){return p.e;}).length.toLocaleString("en")+'</b> জনের</div>'+
@@ -423,7 +414,7 @@ function start(DATA){
     var l=CITIES.filter(function(c){ if(!cOk(c.c)) return false; if(js.length&&js.indexOf(c.jm)<0) return false; return !s||(c.n+" "+c.m+" "+c.u+" "+(c.em||[]).join(" ")+" "+c.c).toLowerCase().indexOf(s)>=0; });
     l.sort(function(a,b){ if(srt==="n") return a.n.localeCompare(b.n); return ((JMR[a.jm]==null?4:JMR[a.jm])-(JMR[b.jm]==null?4:JMR[b.jm]))||a.n.localeCompare(b.n); });
     var rules=CRULES.filter(function(r){return cs.indexOf(r.c)>=0;});
-    V.innerHTML='<p class="lead">তোমার লিস্টের ইউনিভার্সিটিগুলো যে শহরে, সেখানে থাকার খরচ, চাকরি, বেতন, ট্রাফিক, পার্ট-টাইম কাজ আর PR-এর বাড়তি সুবিধা। বাঁ পাশে দেশ বাছলে সেই দেশের নিয়মের কার্ড উপরে আসবে।</p>'+activeTags()+
+    V.innerHTML='<p class="lead">খরচ, চাকরি, বেতন, ট্রাফিক, পার্ট-টাইম। দেশ বাছলে সেই দেশের ভিসা, PR আর ড্রাইভিং লাইসেন্সের নিয়ম উপরে আসে।</p>'+activeTags()+
       (rules.length?'<div class="grid">'+rules.map(function(r){return '<div class="card" role="button" tabindex="0" data-open="ru|'+CRULES.indexOf(r)+'" style="background:var(--accent-soft);border-color:var(--accent)"><div class="eyebrow"><span>দেশের নিয়ম</span></div><h3>'+esc(BN[r.c]||r.c)+'</h3><div class="sub">PR: '+esc(r.py||"")+'</div><div class="sub">ড্রাইভিং: '+esc(r.dr||"")+'</div></div>';}).join("")+'</div>':'')+
       '<div class="tb">'+[["Strong","চাকরি খুব ভালো"],["Good","ভালো"],["Moderate","মাঝারি"],["Limited","সীমিত"]].map(function(o){return '<button class="chip" type="button" data-lp="cj|'+o[0]+'" aria-pressed="'+(local.cj[o[0]]?"true":"false")+'">'+o[1]+'</button>';}).join("")+'</div>'+
       '<div class="count"><b>'+l.length+'</b>টা শহর</div>'+(l.length?'<div class="grid">'+l.slice(0,shown).map(cityCard).join("")+'</div>'+moreBtn(l.length):'<div class="empty">এই ফিল্টারে কোনো শহর নেই।</div>'); }
@@ -444,7 +435,7 @@ function start(DATA){
       out.push({m:m,sc:sc,why:why}); });
     out.sort(function(a,b){return b.sc-a.sc;});
     function sel(id,v,opts){ return '<select id="'+id+'">'+opts.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===v?' selected':'')+'>'+o[1]+'</option>';}).join("")+'</select>'; }
-    V.innerHTML='<p class="lead">নিজের প্রোফাইল দাও, তোমার জন্য সবচেয়ে মানানসই প্রোগ্রাম উপরে আসবে, পাশে কারণ লেখা থাকবে। বাঁ পাশের দেশ আর বিষয়ের ফিল্টারও এখানে কাজ করে।</p>'+activeTags()+
+    V.innerHTML='<p class="lead">তোমার CGPA, IELTS আর লক্ষ্য দিলে মানানসই প্রোগ্রাম উপরে আসে, পাশে কারণ লেখা থাকে।</p>'+activeTags()+
       '<div class="pathg"><div class="pane form"><div class="muted">তৈরি কেস</div>'+CASES.map(function(c){return '<button class="case" type="button" data-case="'+c[0]+'" aria-pressed="'+(P.cs===c[0]?"true":"false")+'">'+esc(c[1])+'</button>';}).join("")+
         '<label>মূল লক্ষ্য'+sel("g-goal",P.goal,[["phd","পরে PhD (রিসার্চ, র‍্যাংক)"],["pr","চাকরি আর তাড়াতাড়ি PR"],["both","দুটোই সমান"]])+'</label>'+
         '<label>ফান্ডিং কতটা দরকার'+sel("g-fund",P.fund,[["FULL","শুধু ফুল ফান্ডেড"],["TUITION","অন্তত টিউশন মাফ"],["PARTIAL","আংশিক হলেও চলবে"],["ANY","নিজের খরচও পারব"]])+'</label>'+
@@ -459,7 +450,7 @@ function start(DATA){
   // ---------- shortlist ----------
   var ST=[["todo","শুরু করিনি"],["prep","প্রস্তুতি চলছে"],["sent","আবেদন করেছি"],["result","ফল পেয়েছি"]];
   function vShort(V){ var l=MS.filter(function(m){return shortlist[m.id];});
-    V.innerHTML='<p class="lead">এই ব্রাউজারে মনে থাকে। কার্ডে চাপলে বিস্তারিত খুলবে, নিচে নিজের অবস্থা বদলাতে পারো।</p>'+(l.length?'<div class="grid">'+l.map(function(m){ var s=status[m.id]||"todo"; return '<div style="display:flex;flex-direction:column;gap:6px">'+msCard(m)+'<select data-st="'+esc(m.id)+'" aria-label="আবেদনের অবস্থা" style="font:14px var(--f-body);padding:8px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--fg)">'+ST.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===s?' selected':'')+'>'+o[1]+'</option>';}).join("")+'</select></div>'; }).join("")+'</div>':'<div class="empty">শর্টলিস্ট খালি। Masters কার্ডের ☆ চাপো।</div>'); }
+    V.innerHTML='<p class="lead">এই ব্রাউজারেই সেভ থাকে। নিচের মেনুতে আবেদনের অবস্থা লিখে রাখো।</p>'+(l.length?'<div class="grid">'+l.map(function(m){ var s=status[m.id]||"todo"; return '<div style="display:flex;flex-direction:column;gap:6px">'+msCard(m)+'<select data-st="'+esc(m.id)+'" aria-label="আবেদনের অবস্থা" style="font:14px var(--f-body);padding:8px;border:1px solid var(--line);border-radius:9px;background:var(--surface);color:var(--fg)">'+ST.map(function(o){return '<option value="'+o[0]+'"'+(o[0]===s?' selected':'')+'>'+o[1]+'</option>';}).join("")+'</select></div>'; }).join("")+'</div>':'<div class="empty">শর্টলিস্ট খালি। Masters কার্ডের ☆ চাপো।</div>'); }
   document.addEventListener("change",function(e){ var s=e.target.closest("[data-st]"); if(!s) return; status[s.dataset.st]=s.value; store.set("vlsi-status",status); });
   document.addEventListener("click",function(e){ var b=e.target.closest("[data-star]"); if(!b) return; e.stopPropagation(); var id=b.dataset.star; if(shortlist[id]) delete shortlist[id]; else shortlist[id]=1; store.set("vlsi-short",shortlist);
     document.querySelectorAll("[data-star]").forEach(function(s){ if(s.dataset.star===id){ s.setAttribute("aria-pressed",shortlist[id]?"true":"false"); s.textContent=shortlist[id]?"★":"☆"; } }); drawNav(); if(cur==="shortlist") render(); },true);
@@ -471,7 +462,7 @@ function start(DATA){
     function bar(v){return '<div style="display:flex;align-items:center;gap:6px"><div class="bar" style="flex:1"><i style="width:'+(v*20)+'%"></i></div><span class="mono">'+v+'</span></div>';}
     var cs=on(F.c), pl=PRR.filter(function(x){return cs.length?cs.indexOf(x.c)>=0:x.c==="Canada";}), ord=Object.keys(TK);
     pl.sort(function(a,b){return (a.c>b.c?1:a.c<b.c?-1:0)||ord.indexOf(a.k)-ord.indexOf(b.k);});
-    V.innerHTML='<p class="lead">স্কোর ১–৫, অফিসিয়াল তথ্যের ভিত্তিতে মূল্যায়ন (৫ = সবচেয়ে ভালো)। সারিতে চাপলে নিচে সেই দেশের PR আর কাজের ভিসার তথ্য আসবে।</p>'+
+    V.innerHTML='<p class="lead">স্কোর ১–৫ (৫ সবচেয়ে ভালো), অফিসিয়াল তথ্য থেকে আমার মূল্যায়ন। সারিতে চাপলে নিচে সেই দেশের PR তথ্য আসে।</p>'+
       '<div class="pane scroll"><table class="cmp"><thead><tr><th>দেশ</th><th>CSE মেলে</th><th>Masters ফান্ডিং</th><th>PR গতি</th><th>চাকরি</th><th>খরচ</th><th>শুধু ইংরেজি</th><th>মোট/৩০</th><th>প্রোগ্রাম · রিসার্চ · স্কলারশিপ</th></tr></thead><tbody>'+
       SC.map(function(r,i){var t=r[1]+r[2]+r[3]+r[4]+r[5]+r[6],c=cnt[r[0]]||{n:0,r:0,f:0};return '<tr data-pick="'+r[0]+'" style="cursor:pointer'+(cs.indexOf(r[0])>=0?';background:var(--accent-soft)':'')+'"><td><b>'+(i+1)+'. '+BN[r[0]]+'</b></td>'+r.slice(1).map(function(v){return '<td>'+bar(v)+'</td>';}).join("")+'<td class="mono"><b>'+t+'</b></td><td class="mono">'+c.n+' · '+c.r+' · '+c.f+'</td></tr>';}).join("")+'</tbody></table></div>'+
       '<h2 style="font:600 18px var(--f-head);margin:6px 0 0">পড়া শেষে: কাজের ভিসা, PR, চাকরি'+(cs.length?'':' (কানাডা, অন্য দেশ বাঁ পাশ থেকে বাছো)')+'</h2>'+
